@@ -1,3 +1,10 @@
 * {
     font-family: sans-serif;
 }
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+.c-pointer {
+    cursor: pointer;
+}

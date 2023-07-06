@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewCatComponent } from './new-cat/new-cat.component';
 import { SearchCatsComponent } from './search-cats/search-cats.component';
+import { CatsRoutingModule } from './cats-routing.module';
 
 
 
@@ -11,10 +12,7 @@ import { SearchCatsComponent } from './search-cats/search-cats.component';
     SearchCatsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, CatsRoutingModule
   ],
-  exports: [
-    SearchCatsComponent, 
-    NewCatComponent]
 })
 export class CatsModule { }

@@ -1,3 +1,9 @@
-<h1>Sistema de gatos</h1>
+<mat-toolbar color="primary">
+    <div class="c-pointer" routerLink="/">Sistema de gatinhos</div>
+    <div>
+    <button mat-flat-button color="primary" routerLink="cats/search">Buscar</button>
+    <button mat-flat-button color="primary" routerLink="cats/new">Cadastrar</button>
+    </div>  
+</mat-toolbar>
 
-<app-search-cats></app-search-cats>
+<router-outlet></router-outlet>
