@@ -6,6 +6,9 @@ import { CatsRoutingModule } from './cats-routing.module';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -15,7 +18,14 @@ import {MatIconModule} from '@angular/material/icon';
     SearchCatsComponent,
   ],
   imports: [
-    CommonModule, CatsRoutingModule, MatTableModule, MatButtonModule, MatIconModule
+    CommonModule, 
+    CatsRoutingModule, 
+    MatTableModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
 })
 export class CatsModule { }
