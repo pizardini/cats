@@ -102,6 +102,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://github.com/pizardini/cats",
+            "name": "Pietro Zardini",
+            "email": "pizardini@gmail.com"
+          }
         }
       }
     }
