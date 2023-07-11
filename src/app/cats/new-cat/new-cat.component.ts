@@ -1,3 +1,4 @@
+import { Cat } from './../../shared/Cat.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NewCatComponent implements OnInit{
 
-  dataSource = [
+  dataSource: Cat[] = [
     { id: 1, name: 'Cesar', length: 0.3, weight: 4.0, breed: 'Siamês'},
     { id: 2, name: 'Augusto', length: 0.5, weight: 2.0, breed: 'Persa'},
     { id: 3, name: 'Ronaldo', length: 0.1, weight: 5.0, breed: 'Burmês'},
@@ -18,14 +19,15 @@ export class NewCatComponent implements OnInit{
   ];
 
   formCat = new FormGroup({
-    name: new FormControl('', Validators.required),
-    length: new FormControl(0, Validators.required),
-    weight: new FormControl(),
-    breed: new FormControl(),
+    name: new FormControl<string>('', Validators.required),
+    length: new FormControl<number | undefined>(undefined, [Validators.required, Validators.min(0)]),
+    weight: new FormControl<number | undefined>(undefined),
+    breed: new FormControl<string>(''),
   })
 
   editMode = false;
-  showPassword = false;
+  // showPassword = false;
+  selectedCat: Cat | undefined;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -34,22 +36,42 @@ export class NewCatComponent implements OnInit{
       
       if (this.route.routeConfig?.path?.includes("edit")) {
         this.editMode = true;
-        let id = this.route.snapshot.params['id'];
-        let cat = this.dataSource.find((item) => item.id == id);
+        let catId: number = this.route.snapshot.params['id'];
+        this.selectedCat = this.dataSource.find((item) => item.id == catId);
         // console.log(cat);
         
         this.formCat.patchValue({
-         ...cat
 
-          // name: cat?.name,
-          // length: cat?.length,
-          // weight: cat?.weight,
-          // race: cat?.weight
+        name: this.selectedCat?.name,
+        length: this.selectedCat?.length,
+        weight: this.selectedCat?.weight,
+        breed: this.selectedCat?.breed
+        //  ...cat
+        // MODO ALTERNATIVO 
         })
       }
   }
 
   logInfo() {
     console.log(this.formCat)
+  }
+
+  createCat(): void {
+
+  }
+
+  updateCat(): void {
+      console.log(this.dataSource);
+      if (this.selectedCat) {
+    const index = this.dataSource.findIndex((value) => value.id === this.selectedCat!.id);
+
+    if (index !== -1) {
+      this.dataSource[index] = {
+        id: this.selectedCat!.id,
+        ...this.formCat.getRawValue(),
+      } as Cat;
+      console.log(this.dataSource);
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 <h2>{{ editMode ? "Editar" : "Cadastrar" }} gato</h2>
 
-<form [formGroup]="formCat" (ngSubmit)="logInfo()">
+<form [formGroup]="formCat" (ngSubmit)="editMode ? updateCat() : createCat()">
     <p>
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
@@ -30,6 +30,6 @@
             <!-- <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>  -->
           </mat-form-field>
     </p>
-    <button mat-flat-button color="primary" [disabled]="formCat.invalid" type="submit">Enviar</button>
+    <button mat-flat-button color="primary" [disabled]="formCat.invalid || formCat.pristine" type="submit">Enviar</button>
     <button mat-stroked-button color="primary" type="reset">Limpar</button>
 </form>
