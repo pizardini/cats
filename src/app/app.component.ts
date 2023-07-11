@@ -12,6 +12,7 @@ export class AppComponent {
   constructor(private router: Router) {
   
   }
+  
   goToSearch(): void {
   this.router.navigate(['cats/search'])
   }
