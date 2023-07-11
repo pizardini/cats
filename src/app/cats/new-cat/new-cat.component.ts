@@ -1,4 +1,4 @@
-import { Cat } from './../../shared/Cat.model';
+import { Cat } from '../../shared/models/Cat.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -61,7 +61,6 @@ export class NewCatComponent implements OnInit{
   }
 
   updateCat(): void {
-      console.log(this.dataSource);
       if (this.selectedCat) {
     const index = this.dataSource.findIndex((value) => value.id === this.selectedCat!.id);
 
@@ -69,8 +68,7 @@ export class NewCatComponent implements OnInit{
       this.dataSource[index] = {
         id: this.selectedCat!.id,
         ...this.formCat.getRawValue(),
-      } as Cat;
-      console.log(this.dataSource);
+        } as Cat;
       }
     }
   }

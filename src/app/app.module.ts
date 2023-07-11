@@ -7,6 +7,7 @@ import { CatsModule } from './cats/cats.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { SharedModule } from './shared/shared.module';
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService } from './shared/in-memory-data/in-memory-data.service';
 // import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
