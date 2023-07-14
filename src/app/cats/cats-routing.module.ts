@@ -8,7 +8,6 @@ const routes: Routes = [
     {path: "search", component: SearchCatsComponent},
     {path: "new", component: NewCatComponent},
     {path: "edit/:id", component: NewCatComponent},
-    
     {path: "**", component: PageNotFoundComponent},
 ];
 
