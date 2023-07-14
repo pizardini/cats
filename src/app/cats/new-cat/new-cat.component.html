@@ -1,1 +1,35 @@
-<p>new-cat works!</p>
+<h2>{{ editMode ? "Editar" : "Cadastrar" }} gato</h2>
+
+<form [formGroup]="formCat" (ngSubmit)="editMode ? updateCat() : createCat()">
+    <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="name">
+          <!-- <mat-hint>Hint</mat-hint> -->
+          <mat-error>Campo Obrigatório</mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Comprimento</mat-label>
+            <input matInput formControlName="length" type="number">
+            <mat-error>Campo Obrigatório</mat-error>
+          </mat-form-field>
+    </p>
+    <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Peso</mat-label>
+            <input matInput formControlName="weight" type="number">
+          </mat-form-field>
+    </p>
+    <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Raça</mat-label>
+            <input matInput formControlName="breed">
+            <!-- <input matInput formControlName="senha" [type]="showPassword ? 'text' : 'password'">-->
+            <!-- <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>  -->
+          </mat-form-field>
+    </p>
+    <button mat-flat-button color="primary" [disabled]="formCat.invalid || formCat.pristine" type="submit">Enviar</button>
+    <button mat-stroked-button color="primary" type="reset">Limpar</button>
+</form>
