@@ -26,9 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     SharedModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-    })
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+    //   dataEncapsulation: false,
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

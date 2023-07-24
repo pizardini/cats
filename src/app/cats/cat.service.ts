@@ -9,9 +9,6 @@ export class CatService {
   private serverUrl = 'http://localhost:3000/cats/';
   constructor(private http: HttpClient) {}
   
-  // getCats() {
-  //   return this.http.get<Cat[]>(this.serverUrl);
-  // }
 
   getCats(): Observable<Cat[]> {
     return this.http.get<Cat[]>(this.serverUrl);

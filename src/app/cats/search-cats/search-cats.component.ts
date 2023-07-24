@@ -15,21 +15,9 @@ export class SearchCatsComponent {
   
   constructor(private service: CatService, private router: Router) {}
 
-  // ngOnInit(): void {
-  //   this.service.getCats().subscribe((resp) => {
-  //     console.log(resp);
-
-  //     this.dataSource = resp;
-  //   })
-  // }
   ngOnInit(): void {
-    this.service.getCats().subscribe(
-      (resp) => {
-        console.log(resp);
-      },
-      (error) => {
-        console.error('Erro ao obter os gatos:', error);
-      }
-    );
+    this.service.getCats().subscribe((resp) => {
+      this.dataSource = resp;
+    })
   }
 }
